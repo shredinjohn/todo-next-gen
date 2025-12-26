@@ -1,0 +1,8 @@
+I've updated the project section and admin editor.
+- Projects now show descriptions.
+- Titles are normal case.
+- "Discover" renamed to "Read More".
+- "Link (-)" button added for external links.
+- Admin editor now has a "Project External Link" field.
+- Profile image on About page updated.
+- Created supabase_update_project_link.sql for the DB update.
