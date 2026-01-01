@@ -64,7 +64,7 @@ export default async function Home() {
                 {/* Featured Post (Main) */}
                 {straightTalkFeatured && (
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-40 self-start">
+                    <div className="sticky top-0 self-start">
                       <PostCard post={straightTalkFeatured} variant="featured" index={0} />
                     </div>
                   </div>
