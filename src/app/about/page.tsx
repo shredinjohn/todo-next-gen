@@ -9,7 +9,10 @@ import { motion } from 'framer-motion'
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-background text-foreground">
-            <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-32">
+            <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12
+py-6 sm:py-8 md:py-10 lg:py-16
+pb-0
+">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 md:gap-12 lg:gap-24 items-center">
 
                     {/* Left Col: Image */}
@@ -74,7 +77,7 @@ export default function AboutPage() {
                                     Read Blog
                                 </Button>
                             </Link>
-                            <Link href="https://linkedin.com" target="_blank">
+                            <Link href="https://www.linkedin.com/in/joshua-aaron-067b27b6/" target="_blank">
                                 <Button variant="outline" size="lg" className="rounded-full px-6 sm:px-8 group w-full sm:w-auto">
                                     Connect
                                     <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
