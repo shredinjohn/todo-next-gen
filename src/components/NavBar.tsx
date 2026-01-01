@@ -1,5 +1,3 @@
-
-
 'use client'
 
 import Link from 'next/link'
@@ -7,13 +5,33 @@ import { Button } from '@/components/ui/button'
 import { NavLink } from '@/components/ui/nav-link'
 import { Github, Twitter, Menu, X } from 'lucide-react'
 import { ModeToggle } from '@/components/mode-toggle'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function NavBar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header
+            className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
+                ? 'border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+                : 'border-b border-transparent bg-transparent'
+                }`}
+        >
             <div className="flex h-14 w-full items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12">
                 <div className="flex items-center gap-4 sm:gap-8">
                     <Link href="/" className="flex items-center space-x-2">

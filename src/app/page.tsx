@@ -2,6 +2,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { CategorySection } from '@/components/blog/CategorySection'
 import { PostCard } from '@/components/blog/PostCard'
+import { cn } from '@/lib/utils'
 
 export const revalidate = 60
 
@@ -53,54 +54,66 @@ export default async function Home() {
           <div className="hidden lg:block space-y-32">
 
             {/* Section 1: Straight Talk */}
-            <div className="grid grid-cols-12 gap-12 items-start relative">
-              {/* Featured Post (Main) - Sticky */}
-              {straightTalkFeatured && (
-                <div className="col-span-8 sticky top-24">
-                  <div className="flex flex-col gap-4 mb-8">
-                    <h1 className="text-5xl font-extrabold tracking-tight text-foreground">
-                      Straight Talk.
-                    </h1>
-                  </div>
-                  <PostCard post={straightTalkFeatured} variant="featured" index={0} />
-                </div>
-              )}
-
-              {/* Sidebar Posts (Compact List) */}
-              {straightTalkSidebar && straightTalkSidebar.length > 0 && (
-                <div className="col-span-4 flex flex-col gap-6 pt-[80px]">
-                  {straightTalkSidebar.map((post, idx) => (
-                    <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
-                      <PostCard post={post} variant="compact" index={idx + 1} />
+            <div>
+              <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
+                <h1 className="text-5xl font-extrabold tracking-tight text-foreground">
+                  Straight Talk.
+                </h1>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
+                {/* Featured Post (Main) */}
+                {straightTalkFeatured && (
+                  <div className="col-span-1 lg:col-span-3">
+                    <div className="sticky top-36 self-start">
+                      <PostCard post={straightTalkFeatured} variant="featured" index={0} />
                     </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                )}
+
+                {/* Sidebar Posts (Compact List) */}
+                {straightTalkSidebar && straightTalkSidebar.length > 0 && (
+                  <div className="col-span-1 lg:col-span-1">
+                    <div className={cn("flex flex-col gap-6", straightTalkSidebar.length > 1 && "sticky top-36 self-start")}>
+                      {straightTalkSidebar.map((post, idx) => (
+                        <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
+                          <PostCard post={post} variant="compact" index={idx + 1} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Section 2: Blogs */}
             {blogsFeatured && (
-              <div className="grid grid-cols-12 gap-12 items-start pt-16 border-t border-border/40 relative">
-                {/* Featured Post (Main) - Sticky */}
-                <div className="col-span-8 sticky top-24">
-                  <div className="flex flex-col gap-4 mb-8">
-                    <h2 className="text-5xl font-extrabold tracking-tight text-foreground">
-                      Blogs.
-                    </h2>
-                  </div>
-                  <PostCard post={blogsFeatured} variant="featured" index={0} />
+              <div className="pt-16 border-t border-border/40">
+                <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
+                  <h2 className="text-5xl font-extrabold tracking-tight text-foreground">
+                    Blogs.
+                  </h2>
                 </div>
-
-                {/* Sidebar Posts (Compact List) */}
-                {blogsSidebar && blogsSidebar.length > 0 && (
-                  <div className="col-span-4 flex flex-col gap-6 pt-[80px]">
-                    {blogsSidebar.map((post, idx) => (
-                      <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
-                        <PostCard post={post} variant="compact" index={idx + 1} />
-                      </div>
-                    ))}
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
+                  {/* Featured Post (Main) */}
+                  <div className="col-span-1 lg:col-span-3">
+                    <div className="sticky top-36 self-start">
+                      <PostCard post={blogsFeatured} variant="featured" index={0} />
+                    </div>
                   </div>
-                )}
+
+                  {/* Sidebar Posts (Compact List) */}
+                  {blogsSidebar && blogsSidebar.length > 0 && (
+                    <div className="col-span-1 lg:col-span-1">
+                      <div className={cn("flex flex-col gap-6", blogsSidebar.length > 1 && "sticky top-36 self-start")}>
+                        {blogsSidebar.map((post, idx) => (
+                          <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
+                            <PostCard post={post} variant="compact" index={idx + 1} />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 
