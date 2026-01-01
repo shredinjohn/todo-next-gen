@@ -40,7 +40,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md :py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md :py-12">
         <div className="space-y-16 sm:space-y-20 md:space-y-32">
 
           {/* === MOBILE LAYOUT (< lg) === */}
@@ -64,7 +64,7 @@ export default async function Home() {
                 {/* Featured Post (Main) */}
                 {straightTalkFeatured && (
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-0 self-start">
+                    <div className="sticky top-40 self-start">
                       <PostCard post={straightTalkFeatured} variant="featured" index={0} />
                     </div>
                   </div>
@@ -73,7 +73,7 @@ export default async function Home() {
                 {/* Sidebar Posts (Compact List) */}
                 {straightTalkSidebar && straightTalkSidebar.length > 0 && (
                   <div className="col-span-1 lg:col-span-1">
-                    <div className={cn("flex flex-col gap-6", straightTalkSidebar.length > 1 && "sticky top-36 self-start")}>
+                    <div className={cn("flex flex-col gap-6", straightTalkSidebar.length > 1 && "sticky top-40 self-start")}>
                       {straightTalkSidebar.map((post, idx) => (
                         <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
                           <PostCard post={post} variant="compact" index={idx + 1} />
@@ -89,14 +89,14 @@ export default async function Home() {
             {blogsFeatured && (
               <div className="pt-16 border-t border-border/40">
                 <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
-                  <h2 className="sticky text-5xl font-extrabold tracking-tight text-foreground">
+                  <h2 className="text-5xl font-extrabold tracking-tight text-foreground">
                     Blogs.
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
                   {/* Featured Post (Main) */}
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-0 self-start">
+                    <div className="sticky top-12 self-start">
                       <PostCard post={blogsFeatured} variant="featured" index={0} />
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default async function Home() {
                   {/* Sidebar Posts (Compact List) */}
                   {blogsSidebar && blogsSidebar.length > 0 && (
                     <div className="col-span-1 lg:col-span-1">
-                      <div className={cn("flex flex-col gap-6", blogsSidebar.length > 1 && "sticky top-36 self-start")}>
+                      <div className={cn("flex flex-col gap-6", blogsSidebar.length > 1 && "sticky top-40 self-start")}>
                         {blogsSidebar.map((post, idx) => (
                           <div key={post.id} className="border-b border-border/40 pb-6 last:border-0 last:pb-0">
                             <PostCard post={post} variant="compact" index={idx + 1} />
