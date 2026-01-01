@@ -56,7 +56,7 @@ export default async function Home() {
             {/* Section 1: Straight Talk */}
             <div>
               <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
-                <h1 className="text-5xl font-extrabold tracking-tight text-foreground">
+                <h1 className="sticky text-5xl font-extrabold tracking-tight text-foreground">
                   Straight Talk.
                 </h1>
               </div>
@@ -64,7 +64,7 @@ export default async function Home() {
                 {/* Featured Post (Main) */}
                 {straightTalkFeatured && (
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-36 self-start">
+                    <div className="sticky top-0 self-start">
                       <PostCard post={straightTalkFeatured} variant="featured" index={0} />
                     </div>
                   </div>
@@ -89,14 +89,14 @@ export default async function Home() {
             {blogsFeatured && (
               <div className="pt-16 border-t border-border/40">
                 <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
-                  <h2 className="text-5xl font-extrabold tracking-tight text-foreground">
+                  <h2 className="sticky text-5xl font-extrabold tracking-tight text-foreground">
                     Blogs.
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
                   {/* Featured Post (Main) */}
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-36 self-start">
+                    <div className="sticky top-0 self-start">
                       <PostCard post={blogsFeatured} variant="featured" index={0} />
                     </div>
                   </div>
