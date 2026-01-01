@@ -49,7 +49,7 @@ export default async function Home({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-[1600px] mx-auto  sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
 
         {/* Header / Filter Section */}
         <div className="flex flex-col gap-4 mb-8">

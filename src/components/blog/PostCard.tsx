@@ -42,10 +42,10 @@ export function PostCard({ post, variant = 'default', index = 0, className }: Po
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: delay, ease: "easeOut" }}
-                    className="flex flex-col gap-4"
+                    className="flex flex-col gap-4 pb-6 lg:pb-0"
                 >
-                    {/* Featured aspect ratio: 16/9 */}
-                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-md bg-muted select-none">
+                    {/* Featured aspect ratio: 1:1 on mobile, 16/9 on desktop */}
+                    <div className="relative w-full aspect-[1/1] lg:aspect-[16/9] overflow-hidden rounded-md bg-muted select-none">
                         {post.cover_image && (
                             <motion.img
                                 whileHover={{ scale: 1.05 }}
@@ -62,7 +62,7 @@ export function PostCard({ post, variant = 'default', index = 0, className }: Po
                             <span>&middot;</span>
                             <time>{formatDate(post.created_at)}</time>
                         </div>
-                        <h2 className="text-3xl md:text-[2.5rem] font-bold tracking-tight text-foreground group-hover:text-foreground/80 transition-colors leading-[1.1]">
+                        <h2 className="text-xl md:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-foreground group-hover:text-foreground/80 transition-colors leading-[1.1]">
                             {post.title}
                         </h2>
                     </div>
