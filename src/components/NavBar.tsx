@@ -35,7 +35,7 @@ export function NavBar() {
             <div className="max-w-[1600px] mx-auto flex h-14 w-full items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12">
                 <div className="flex items-center gap-4 sm:gap-8">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="font-bold text-lg sm:text-xl tracking-tighter">JOSHUA PHILIP.</span>
+                        <span className="font-bold text-lg sm:text-xl tracking-tighter">JOSHUA PHILIP</span>
                     </Link>
 
                     {/* Desktop Navigation */}

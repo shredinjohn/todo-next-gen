@@ -67,23 +67,12 @@ export default function ProjectsPage() {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
+            className="bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
         >
             <div className="container mx-auto px-4 sm:px-8 py-8 sm:py-12">
 
                 {projects.length > 0 ? (
                     <div className="max-w-7xl mx-auto">
-
-                        {/* Heading */}
-                        <div    >
-                            <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter"
-                            >
-                                Selected Works
-                            </motion.h1>
-                        </div>
 
                         {/* MOBILE LIST VIEW (Responsive Mode) */}
                         <div className="flex md:hidden flex-col gap-12 sm:gap-16">
@@ -96,7 +85,7 @@ export default function ProjectsPage() {
                                     className="group relative"
                                 >
                                     {/* Landscape Aspect Ratio Card */}
-                                    <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden border border-border bg-card shadow-2xl text-white">
+                                    <div className="relative aspect-[16/10] rounded-md overflow-hidden border border-border bg-card shadow-lg text-white">
                                         <img
                                             src={project.cover_image || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f'}
                                             alt={project.title}
@@ -135,7 +124,7 @@ export default function ProjectsPage() {
 
                         {/* DESKTOP VIEW: PREMIUM CAROUSEL */}
                         <div className="hidden md:block relative">
-                            <div className="relative h-[650px] flex items-center justify-center">
+                            <div className="relative h-[450px] flex items-center justify-center">
                                 {[-1, 0, 1].map((offset) => {
                                     const index = (currentIndex + offset + projects.length) % projects.length
                                     const project = projects[index]
@@ -155,7 +144,7 @@ export default function ProjectsPage() {
                                                 y: isCenter ? 0 : 20
                                             }}
                                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                            className={`absolute w-[700px] aspect-[16/10] rounded-[3rem] overflow-hidden border border-border bg-black shadow-2xl group text-white ${isCenter ? 'cursor-default' : 'cursor-pointer'}`}
+                                            className={`absolute w-[700px] aspect-[16/10] rounded-md overflow-hidden border border-border bg-black shadow-2xl group text-white ${isCenter ? 'cursor-default' : 'cursor-pointer'}`}
                                             onClick={() => {
                                                 if (offset === -1) prevSlide()
                                                 if (offset === 1) nextSlide()

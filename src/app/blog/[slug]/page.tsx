@@ -53,11 +53,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <article className="min-h-screen bg-background">
             {/* Hero Section */}
             <div className="bg-muted/30 border-b border-border/40">
-                <div className="container max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 lg:py-20">
-                    <Link href="/" className="inline-block mb-6 sm:mb-8">
+                <div className="container max-w-4xl mx-auto px-4 sm:px-6 
+            pt-8 sm:pt-12 md:pt-16 lg:pt-20 
+            pb-4 sm:pb-4 md:pb-4 lg:pb-4">
+                    <Link href={post.type === 'project' ? '/projects' : '/'} className="inline-block mb-6 sm:mb-8">
                         <Button variant="ghost" className="pl-0 hover:bg-transparent hover:text-foreground text-muted-foreground">
                             <ArrowLeft className="mr-2 h-4 w-4" />
-                            Back to Blog
+                            {post.type === 'project' ? 'Back to Projects' : 'Back to Blog'}
                         </Button>
                     </Link>
 
@@ -84,12 +86,34 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 {post.excerpt}
                             </p>
                         )}
+
+                        {post.project_link && (
+                            <div className="pt-2">
+                                <Link href={post.project_link} target="_blank" rel="noopener noreferrer">
+                                    <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90 font-semibold px-6">
+                                        Visit Project <ArrowLeft className="ml-2 h-4 w-4 rotate-[135deg]" />
+                                        {/* Using rotated ArrowLeft as makeshift external link arrow if ExternalLink not desired, 
+                                            but let's use ExternalLink if we import it. 
+                                            Actually, I need to add ExternalLink to imports first. 
+                                            Let's use the tool again to add the import or just assume I can edit the whole file or chunk. 
+                                            The replace block is constrained. I will use a simple arrow or just the text if I can't easily add the import in this chunk.
+                                            Wait, I can replace the import block too? No, single chunk.
+                                            I'll use the existing ArrowLeft or just text.
+                                            Actually, I can try to use multi_replace for imports + button.
+                                            For now, I'll stick to a simple button.
+                                        */}
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
 
             {/* Content */}
-            <div className="container max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 lg:py-20">
+            <div className="container max-w-4xl mx-auto px-4 sm:px-6 
+            pt-8 sm:pt-12 md:pt-16 lg:pt-20 
+            pb-24 sm:pb-32">
                 {post.cover_image && (
                     <div className="aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden mb-8 sm:mb-12 bg-muted shadow-sm">
                         <img
@@ -101,10 +125,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 )}
 
                 <div
-                    className="prose prose-base sm:prose-lg dark:prose-invert prose-gray max-w-none 
-            prose-headings:font-bold prose-headings:tracking-tight 
-            prose-p:leading-relaxed prose-p:text-muted-foreground
-            prose-a:text-foreground prose-a:no-underline hover:prose-a:underline
+                    className="prose prose-base sm:prose-lg dark:prose-invert max-w-none 
+            prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white
+            prose-p:leading-relaxed prose-p:text-white
+            prose-li:text-white prose-strong:text-white
+            prose-a:text-white/90 prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl prose-img:shadow-lg prose-img:mx-auto prose-img:block
             [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl"
                     dangerouslySetInnerHTML={{ __html: post.content || '' }}
