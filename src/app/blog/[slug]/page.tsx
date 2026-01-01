@@ -126,10 +126,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                 <div
                     className="prose prose-base sm:prose-lg dark:prose-invert max-w-none 
-            prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white
-            prose-p:leading-relaxed prose-p:text-white
-            prose-li:text-white prose-strong:text-white
-            prose-a:text-white/90 prose-a:no-underline hover:prose-a:underline
+            prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground
+            prose-p:leading-relaxed prose-p:text-foreground
+            prose-li:text-foreground prose-strong:text-foreground
+            prose-a:text-foreground/90 prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl prose-img:shadow-lg prose-img:mx-auto prose-img:block
             [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl"
                     dangerouslySetInnerHTML={{ __html: post.content || '' }}
