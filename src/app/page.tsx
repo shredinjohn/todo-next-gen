@@ -87,7 +87,7 @@ export default async function Home() {
 
             {/* Section 2: Blogs */}
             {blogsFeatured && (
-              <div className="pt-16 border-t border-border/40">
+              <div className="border-t border-border/40">
                 <div className="top-14 z-30 bg-background/95 backdrop-blur pb-4 pt-2 mb-8">
                   <h2 className="text-5xl font-extrabold tracking-tight text-foreground">
                     Blogs.
