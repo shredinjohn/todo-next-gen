@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { NavLink } from '@/components/ui/nav-link'
-import { Github, Twitter, Menu, X } from 'lucide-react'
+import { Github, Twitter, Menu, X, Linkedin } from 'lucide-react'
 import { ModeToggle } from '@/components/mode-toggle'
 import { useState, useEffect } from 'react'
 
@@ -49,16 +49,10 @@ export function NavBar() {
                 <div className="flex items-center space-x-2 sm:space-x-4">
                     {/* Desktop Social Icons */}
                     <div className="hidden sm:flex items-center space-x-2">
-                        <Link href="https://github.com" target="_blank" rel="noreferrer">
+                        <Link href="https://www.linkedin.com/in/joshua-aaron-067b27b6/" target="_blank" rel="noreferrer">
                             <Button variant="ghost" size="icon" className="h-8 w-8 px-0">
-                                <Github className="h-4 w-4" />
-                                <span className="sr-only">GitHub</span>
-                            </Button>
-                        </Link>
-                        <Link href="https://twitter.com" target="_blank" rel="noreferrer">
-                            <Button variant="ghost" size="icon" className="h-8 w-8 px-0">
-                                <Twitter className="h-4 w-4" />
-                                <span className="sr-only">Twitter</span>
+                                <Linkedin className="h-4 w-4" />
+                                <span className="sr-only">LinkedIn</span>
                             </Button>
                         </Link>
                     </div>
@@ -94,16 +88,10 @@ export function NavBar() {
 
                         {/* Mobile Social Links */}
                         <div className="flex items-center gap-4 pt-4 border-t border-border/40">
-                            <Link href="https://github.com" target="_blank" rel="noreferrer">
+                            <Link href="https://www.linkedin.com/in/joshua-aaron-067b27b6/" target="_blank" rel="noreferrer">
                                 <Button variant="ghost" size="sm">
-                                    <Github className="h-4 w-4 mr-2" />
-                                    GitHub
-                                </Button>
-                            </Link>
-                            <Link href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <Button variant="ghost" size="sm">
-                                    <Twitter className="h-4 w-4 mr-2" />
-                                    Twitter
+                                    <Linkedin className="h-4 w-4 mr-2" />
+                                    LinkedIn
                                 </Button>
                             </Link>
                         </div>
