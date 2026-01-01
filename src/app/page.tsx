@@ -32,10 +32,8 @@ export default async function Home() {
   const blogsSidebar = blogPosts.slice(1, 4) // Next 3 posts
 
   // Remaining posts logic for desktop grid if needed
-  const gridPosts = [
-    ...straightTalkPosts.slice(4),
-    ...blogPosts.slice(4)
-  ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+  const straightTalkGrid = straightTalkPosts.slice(4)
+  const gridPosts = blogPosts.slice(4)
 
 
   return (
@@ -83,6 +81,17 @@ export default async function Home() {
                   </div>
                 )}
               </div>
+
+              {/* Bottom Section: Standard Grid - Optional for Desktop if posts > 4 */}
+              {straightTalkGrid && straightTalkGrid.length > 0 && (
+                <div className="border-t border-border/40 mt-12 pt-12">
+                  <div className="grid gap-x-8 gap-y-12 grid-cols-3">
+                    {straightTalkGrid.map((post, idx) => (
+                      <PostCard key={post.id} post={post} index={idx} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Section 2: Blogs */}
@@ -96,7 +105,7 @@ export default async function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
                   {/* Featured Post (Main) */}
                   <div className="col-span-1 lg:col-span-3">
-                    <div className="sticky top-12 self-start">
+                    <div className="sticky top-0 self-start">
                       <PostCard post={blogsFeatured} variant="featured" index={0} />
                     </div>
                   </div>
@@ -119,7 +128,7 @@ export default async function Home() {
 
             {/* Bottom Section: Standard Grid - Optional for Desktop if posts > 4 */}
             {gridPosts && gridPosts.length > 0 && (
-              <div className="pt-16 border-t border-border/40">
+              <div className="border-t border-border/40">
                 <div className="grid gap-x-8 gap-y-12 grid-cols-3">
                   {gridPosts.map((post, idx) => (
                     <PostCard key={post.id} post={post} index={idx} />
