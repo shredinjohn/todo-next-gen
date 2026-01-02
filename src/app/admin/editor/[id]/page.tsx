@@ -28,7 +28,7 @@ export default function EditorPage({ params }: { params: Promise<{ id: string }>
     const [coverImage, setCoverImage] = useState('')
     const [published, setPublished] = useState(false)
     const [postType, setPostType] = useState('post')
-    const [category, setCategory] = useState('Blogs')
+    const [category, setCategory] = useState('Tech & Thoughts')
     const [uploading, setUploading] = useState(false)
 
     // Auto-generate slug from title if new
@@ -62,7 +62,7 @@ export default function EditorPage({ params }: { params: Promise<{ id: string }>
                 setCoverImage(data.cover_image || '')
                 setPublished(data.published)
                 setPostType(data.type || 'post')
-                setCategory(data.category || 'Blogs')
+                setCategory(data.category || 'Tech & Thoughts')
             }
         } catch (error) {
             console.error('Error fetching post:', error)
@@ -217,18 +217,20 @@ export default function EditorPage({ params }: { params: Promise<{ id: string }>
                                 <option value="project">Project</option>
                             </select>
                         </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="category">Category</Label>
-                            <select
-                                id="category"
-                                value={category}
-                                onChange={(e) => setCategory(e.target.value)}
-                                className="flex h-9 w-full rounded-md border border-input bg-background/50 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                            >
-                                <option value="Straight Talk">Straight Talk</option>
-                                <option value="Blogs">Blogs</option>
-                            </select>
-                        </div>
+                        {postType !== 'project' && (
+                            <div className="space-y-2">
+                                <Label htmlFor="category">Category</Label>
+                                <select
+                                    id="category"
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    className="flex h-9 w-full rounded-md border border-input bg-background/50 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                >
+                                    <option value="Straight Talk">Straight Talk</option>
+                                    <option value="Tech & Thoughts">Tech & Thoughts</option>
+                                </select>
+                            </div>
+                        )}
                         <div className="space-y-2">
                             <Label htmlFor="slug">Slug</Label>
                             <Input

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { NavLink } from '@/components/ui/nav-link'
-import { Github, Twitter, Menu, X, Linkedin } from 'lucide-react'
+import { Github, Twitter, Menu, X } from 'lucide-react'
 import { ModeToggle } from '@/components/mode-toggle'
 import { useState, useEffect } from 'react'
 
@@ -32,10 +32,10 @@ export function NavBar() {
                 : 'border-b border-transparent bg-transparent'
                 }`}
         >
-            <div className="max-w-[1600px] mx-auto flex h-14 w-full items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12">
+            <div className="max-w-[1600px] mx-auto flex h-14 w-full items-center justify-between px-4 sm:px-4 md:px-6 lg:px-8">
                 <div className="flex items-center gap-4 sm:gap-8">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="font-bold text-lg sm:text-xl tracking-tighter">JOSHUA PHILIP</span>
+                        <span className="font-bold text-lg sm:text-xl tracking-tighter">Joshua Philip</span>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -97,12 +97,7 @@ export function NavBar() {
                         <div className="flex items-center gap-4 pt-4 border-t border-border/40">
                             <Link href="https://www.linkedin.com/in/joshua-aaron-067b27b6/" target="_blank" rel="noreferrer">
                                 <Button variant="ghost" size="sm">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        className="h-4 w-4 mr-2"
-                                    >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 mr-2">
                                         <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.22-.6-1.93-1.84-1.93-1 0-1.62.67-1.62 1.93V19h-3v-9h3v1.2c.49-.62 1.23-1.06 2.59-1.06 1.95 0 3.87 1.21 3.87 5.1z" />
                                     </svg>
                                     LinkedIn

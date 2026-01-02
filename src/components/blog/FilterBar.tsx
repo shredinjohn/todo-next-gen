@@ -10,8 +10,9 @@ export function FilterBar() {
 
     const filters = [
         { name: 'All', value: null }, // distinct from string 'All' for cleaner URL if desired, or use 'All'
+        { name: 'Tech & Thoughts', value: 'Tech & Thoughts' },
         { name: 'Straight Talk', value: 'Straight Talk' },
-        { name: 'Tech', value: 'Tech' },
+
         // Add more if needed later
     ]
 

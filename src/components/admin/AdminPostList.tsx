@@ -97,9 +97,11 @@ function SortablePost({ post, onDelete }: { post: Post, onDelete: (id: string) =
                                 <Calendar className="h-3 w-3 mr-1" />
                                 {new Date(post.created_at).toLocaleDateString()}
                             </span>
-                            <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-secondary text-secondary-foreground">
-                                {post.category || 'Uncategorized'}
-                            </span>
+                            {post.type !== 'project' && (
+                                <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-secondary text-secondary-foreground">
+                                    {post.category || 'Uncategorized'}
+                                </span>
+                            )}
                         </div>
                         <h3 className="font-semibold text-base sm:text-xl text-foreground truncate mb-1">
                             {post.title}
@@ -268,7 +270,7 @@ export function AdminPostList({ initialPosts }: AdminPostListProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
                 <Tabs defaultValue="blogs" onValueChange={setActiveTab} className="w-full sm:w-auto">
                     <TabsList className="grid w-full grid-cols-3 lg:w-[400px]">
-                        <TabsTrigger value="blogs">Blogs</TabsTrigger>
+                        <TabsTrigger value="blogs">Tech & Thoughts</TabsTrigger>
                         <TabsTrigger value="straight-talk">Straight Talk</TabsTrigger>
                         <TabsTrigger value="projects">Projects</TabsTrigger>
                     </TabsList>

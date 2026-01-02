@@ -13,14 +13,14 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Joshua Aaron | Modern Blog",
-  description: "Personal blog of Joshua Aaron. Thoughts on technology, design, and the future.",
+  title: "Joshua Philip",
+  description: "Personal blog of Joshua Philip. Thoughts on technology, design, and the future.",
   openGraph: {
-    title: "Joshua Aaron | Modern Blog",
+    title: "Joshua Philip",
     description: "Thoughts on technology, design, and the future.",
     type: "website",
     locale: "en_US",
-    siteName: "Joshua Aaron Blog",
+    siteName: "Joshua Philip",
   },
 };
 

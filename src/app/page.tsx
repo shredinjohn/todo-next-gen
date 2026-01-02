@@ -49,30 +49,42 @@ export default async function Home({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
+      <div className="max-w-[1600px] mx-auto px-8 sm:px-8 md:px-12 lg:px-16 py-8 sm:py-10 md:py-12">
 
         {/* Header / Filter Section */}
-        <div className="flex flex-col gap-4 mb-8">
-          <h1 className="text-5xl font-medium tracking-tight text-foreground mb-4 mt-4">
+        <div className="flex flex-col gap-6 mb-12">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground">
             Tech, AI & More...
           </h1>
 
           <FilterBar />
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-20 md:space-y-24">
           {/* === DESKTOP LAYOUT (Unified) === */}
           <div>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 lg:gap-x-6 relative">
 
               {/* Featured Post (Main) */}
-              {featuredPost && (
-                <div className="col-span-1 lg:col-span-3">
-                  <div className="sticky top-0 self-start">
-                    <PostCard post={featuredPost} variant="featured" index={0} />
+              {featuredPost && (() => {
+                // Estimate number of lines based on title length
+                // Rough estimate: ~40-50 chars per line on desktop
+                const titleLength = featuredPost.title.length
+                const estimatedLines = Math.ceil(titleLength / 45)
+
+                // Determine sticky position based on lines
+                let stickyClass = 'top-0'
+                if (estimatedLines === 2) stickyClass = '-top-12'
+                else if (estimatedLines >= 3) stickyClass = '-top-24'
+
+                return (
+                  <div className="col-span-1 lg:col-span-3">
+                    <div className={`sticky ${stickyClass} self-start`}>
+                      <PostCard post={featuredPost} variant="featured" index={0} />
+                    </div>
                   </div>
-                </div>
-              )}
+                )
+              })()}
 
               {/* Sidebar Posts (Compact List) */}
               {sidebarPosts.length > 0 && (

@@ -44,12 +44,11 @@ export function PostCard({ post, variant = 'default', index = 0, className }: Po
                     transition={{ duration: 0.4, delay: delay, ease: "easeOut" }}
                     className="flex flex-col gap-4 pb-6 lg:pb-0"
                 >
-                    {/* Featured aspect ratio: 1:1 on mobile, 16/9 on desktop */}
                     <div className="relative w-full aspect-[1/1] lg:aspect-[16/9] overflow-hidden rounded-md bg-muted select-none">
                         {post.cover_image && (
                             <motion.img
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                                whileHover={{ scale: 1.0125 }}
+                                transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
                                 src={post.cover_image}
                                 alt={post.title}
                                 className="h-full w-full object-cover will-change-transform"
@@ -85,8 +84,8 @@ export function PostCard({ post, variant = 'default', index = 0, className }: Po
                     <div className="relative w-full aspect-[1/1] overflow-hidden rounded-md bg-muted select-none">
                         {post.cover_image && (
                             <motion.img
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                                whileHover={{ scale: 1.025 }}
+                                transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
                                 src={post.cover_image}
                                 alt={post.title}
                                 className="h-full w-full object-cover will-change-transform"
@@ -122,8 +121,8 @@ export function PostCard({ post, variant = 'default', index = 0, className }: Po
                 <div className="relative w-full aspect-[1/1] overflow-hidden rounded-md bg-muted select-none">
                     {post.cover_image && (
                         <motion.img
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                            whileHover={{ scale: 1.025 }}
+                            transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
                             src={post.cover_image}
                             alt={post.title}
                             className="h-full w-full object-cover will-change-transform"

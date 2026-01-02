@@ -42,7 +42,7 @@ pb-0
                             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6">
-                                Joshua Philip.
+                                Joshua Philip
                             </h1>
                             <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground tracking-tight">
                                 Senior Analyst. Problem Solver.
